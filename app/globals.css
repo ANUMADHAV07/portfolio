@@ -1,8 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0e1a;
+  --foreground: #e5f5ff;
+
+  /* Gojo Six Eyes Colors */
+  --gojo-blue: #00a3e0;
+  --gojo-electric: #4a90e2;
+  --gojo-cyan: #00bfff;
+  --gojo-purple: #9b59b6;
+  --gojo-dark: #1c1c2a;
+  --gojo-midnight: #0a0e1a;
+  --gojo-white: #ffffff;
+  --gojo-lavender: #e6e6fa;
+  --gojo-silver: #c0c0c0;
+  --gojo-shadow: #101010;
 }
 
 @theme inline {
@@ -10,17 +22,332 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Gojo Theme Colors */
+  --color-gojo-blue: var(--gojo-blue);
+  --color-gojo-electric: var(--gojo-electric);
+  --color-gojo-cyan: var(--gojo-cyan);
+  --color-gojo-purple: var(--gojo-purple);
+  --color-gojo-dark: var(--gojo-dark);
+  --color-gojo-midnight: var(--gojo-midnight);
+  --color-gojo-white: var(--gojo-white);
+  --color-gojo-lavender: var(--gojo-lavender);
+  --color-gojo-silver: var(--gojo-silver);
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(
+    135deg,
+    var(--gojo-midnight) 0%,
+    var(--gojo-dark) 100%
+  );
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Six Eyes Gradient */
+.gradient-gojo {
+  background: linear-gradient(
+    135deg,
+    var(--gojo-electric),
+    var(--gojo-cyan),
+    var(--gojo-purple)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Infinity/Limitless Effect */
+.infinity-glow {
+  box-shadow: 0 0 20px var(--gojo-blue), 0 0 40px var(--gojo-cyan),
+    0 0 60px var(--gojo-electric);
+  animation: infinity-pulse 2s ease-in-out infinite;
+}
+
+@keyframes infinity-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px var(--gojo-blue), 0 0 40px var(--gojo-cyan),
+      0 0 60px var(--gojo-electric);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--gojo-blue), 0 0 60px var(--gojo-cyan),
+      0 0 90px var(--gojo-electric);
+  }
+}
+
+/* Six Eyes Spinner */
+.six-eyes-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid transparent;
+  border-top: 4px solid var(--gojo-blue);
+  border-right: 4px solid var(--gojo-cyan);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  box-shadow: 0 0 20px var(--gojo-blue);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Domain Expansion Effect */
+.domain-expansion {
+  position: relative;
+  overflow: hidden;
+}
+
+.domain-expansion::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 163, 224, 0.2) 0%,
+    transparent 70%
+  );
+  animation: domain-pulse 4s ease-in-out infinite;
+}
+
+@keyframes domain-pulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Cursed Energy Wave */
+.cursed-energy-wave {
+  background: linear-gradient(
+    90deg,
+    var(--gojo-midnight) 0%,
+    var(--gojo-blue) 25%,
+    var(--gojo-cyan) 50%,
+    var(--gojo-blue) 75%,
+    var(--gojo-midnight) 100%
+  );
+  background-size: 200% 100%;
+  animation: wave-flow 3s ease-in-out infinite;
+}
+
+@keyframes wave-flow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Hollow Purple Button */
+.btn-hollow-purple {
+  position: relative;
+  background: linear-gradient(135deg, var(--gojo-blue), var(--gojo-purple));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--gojo-cyan);
+  font-weight: bold;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.btn-hollow-purple::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-hollow-purple:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-hollow-purple:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px var(--gojo-cyan);
+}
+
+/* Limitless Card */
+.limitless-card {
+  background: rgba(28, 28, 42, 0.8);
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.limitless-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    var(--gojo-blue),
+    var(--gojo-cyan),
+    var(--gojo-purple)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.limitless-card:hover::before {
+  opacity: 1;
+}
+
+.limitless-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0, 163, 224, 0.3);
+}
+
+/* Infinity Symbol Effect */
+.infinity-symbol {
+  position: relative;
+  display: inline-block;
+}
+
+.infinity-symbol::before,
+.infinity-symbol::after {
+  content: "∞";
+  position: absolute;
+  font-size: 2rem;
+  color: var(--gojo-cyan);
+  opacity: 0.3;
+  animation: float-infinity 3s ease-in-out infinite;
+}
+
+.infinity-symbol::before {
+  left: -30px;
+  animation-delay: 0s;
+}
+
+.infinity-symbol::after {
+  right: -30px;
+  animation-delay: 1.5s;
+}
+
+@keyframes float-infinity {
+  0%,
+  100% {
+    transform: translateY(0px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 0.7;
+  }
+}
+
+/* Selection */
+::selection {
+  background-color: var(--gojo-blue);
+  color: var(--gojo-white);
+}
+
+/* Scrollbar - Six Eyes Theme */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gojo-midnight);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gojo-blue), var(--gojo-purple));
+  border-radius: 6px;
+  box-shadow: 0 0 10px var(--gojo-cyan);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gojo-cyan);
+}
+
+/* Section Container */
+.section-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+/* Particle Effect */
+.particle-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--gojo-cyan);
+  border-radius: 50%;
+  animation: particle-float 10s infinite;
+  box-shadow: 0 0 5px var(--gojo-blue);
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px);
+    opacity: 0;
+  }
 }
